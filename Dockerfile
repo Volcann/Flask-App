@@ -13,6 +13,9 @@ WORKDIR /app
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
 
+# Install numpy first to avoid conflicts
+RUN pip install --no-cache-dir numpy==1.24.0
+
 # Install the required Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 

@@ -14,12 +14,10 @@ WORKDIR /app
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
 
-# Create a virtual environment
-RUN python -m venv venv
-
-# Activate the virtual environment and install the required packages
-RUN venv/bin/pip install --no-cache-dir --upgrade pip \
-    && venv/bin/pip install --no-cache-dir -r requirements.txt
+# Install the required Python packages
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir numpy \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY . .
@@ -28,5 +26,6 @@ COPY . .
 EXPOSE 5000
 
 # Define the command to run your app using gunicorn
-CMD ["venv/bin/gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+
 

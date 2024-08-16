@@ -11,16 +11,10 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory in the container
 WORKDIR /app
 
-# Create a virtual environment
-RUN python -m venv venv
-
-# Ensure the virtual environment is used for subsequent commands
-ENV PATH="/app/venv/bin:$PATH"
-
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
 
-# Install the required Python packages in the virtual environment
+# Install the required Python packages
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir numpy \
     && pip install --no-cache-dir -r requirements.txt
@@ -32,4 +26,4 @@ COPY . .
 EXPOSE 5000
 
 # Define the command to run your app using gunicorn
-CMD ["gunicorn", "-b", "0.0.0.0:${PORT:-5000}", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]

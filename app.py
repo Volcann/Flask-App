@@ -14,7 +14,7 @@ def predict():
     input_query = pd.DataFrame([[cgpa, iq, profile_score]], columns=['cgpa', 'iq', 'profile_score'])
     result = model.predict(input_query)[0]
 
-    return jsonify(str(result))
+     return jsonify({'Placement': str(result)})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

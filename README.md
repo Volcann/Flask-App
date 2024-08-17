@@ -133,6 +133,11 @@ By following these methods, you can ensure that your Flask app is working correc
 
 ---
 
+`/predict` 
+Route: The path defined in your API that maps to a specific function or method in your application. For instance, in a Flask app, you might define a route that corresponds to the /predict endpoint to handle prediction requests.
+
+---
+
 ### 7. **Test Locally with Docker**
 
    **a. Build the Docker Image:**

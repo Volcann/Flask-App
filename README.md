@@ -176,8 +176,30 @@ Route: The path defined in your API that maps to a specific function or method i
 
 ### 9. **Deploy to Production (Optional)**
 
-   **a. Deploy Using Railway or Other Hosting Service:**
-   - Deploy your Docker container to a service like Railway for production use. Follow the specific platform's documentation for deployment.
+#### Deployment on Railway
+
+1. **Setup Custom Start Command:**
+   - A custom start command is configured to run the application using `gunicorn`:
+     ```bash
+     gunicorn app:app
+     ```
+   - This command ensures that the Flask app is served efficiently and can handle multiple requests simultaneously.
+
+2. **Prepare the Repository:**
+   - Ensure that all necessary files, including `app.py` and `requirements.txt`, are included in the repository.
+   - Add any necessary environment variables through Railway’s dashboard.
+
+3. **Deploy to Railway:**
+   - Create a new project on Railway and connect it to your Git repository.
+   - Railway will detect the Python environment and use `requirements.txt` for dependency installation.
+
+4. **Automatic Build and Deployment:**
+   - Railway will build and deploy your application using the provided start command.
+   - Monitor the deployment process through Railway’s dashboard.
+
+5. **Testing and Monitoring:**
+   - Access the deployed application using the URL provided by Railway.
+   - Use Railway’s tools to monitor performance, view logs, and manage deployments.
 
 ---
 

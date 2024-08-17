@@ -1,6 +1,5 @@
-## Step-by-Step Workflow: 
+## Step-by-Step Workflow: Deployment on Railways
 ## Setting Up and Testing a Machine Learning Project with Git, Docker, and Local Testing
-### Deployment on Railways
 
 ### 1. **Project Setup**
 
